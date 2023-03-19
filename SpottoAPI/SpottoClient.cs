@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RestSharp;
 using SpottoAPI.Models;
 
 namespace SpottoAPI {
@@ -47,7 +49,11 @@ namespace SpottoAPI {
         /// <returns>The RestResponse</returns>
         public Task<RestResponse> CreatePublication(SpottoListing listing, string uniqueReference, bool toBeArchived = false) {
             RestRequest req = new RestRequest("/partner/imports");
-            req.AddJsonBody(new Publication(uniqueReference, PartnerId, listing, toBeArchived));
+            req.AddJsonBody(JsonConvert.SerializeObject(new Publication(uniqueReference, PartnerId, listing, toBeArchived),
+                new JsonSerializerSettings { 
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    NullValueHandling = NullValueHandling.Ignore,
+                }));
             return Client.PostAsync(CreateRequest(req));
         }
 
@@ -60,7 +66,7 @@ namespace SpottoAPI {
         private RestRequest CreateRequest(RestRequest request) {
             request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0");
             request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Authorization", $"subscription-key=\"{SubscriptionKey}\"");
+            request.AddQueryParameter("subscription-key", SubscriptionKey);
 
             return request;
         }
