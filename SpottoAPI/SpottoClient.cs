@@ -14,7 +14,7 @@ namespace SpottoAPI {
             get {
                 return Sandbox ?
                     "https://api.spotto.be/uat/" :
-                    "https://api.spotto.be/";
+                    "https://api.spotto.be/prod/";
             }
         }
 
