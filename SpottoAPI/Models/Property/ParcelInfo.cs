@@ -5,34 +5,34 @@ namespace SpottoAPI.Models.Property {
 
     public class ParcelInfo {
 
-        public decimal? parcelDepthInMeters;
+        public decimal? ParcelDepthInMeters;
 
-        public decimal? parcelWidthInMeters;
-
-        [JsonConverter(typeof(StringEnumConverter))]
-        public FloodProneType? parcelFloodProneType;
-
-        public bool? parcelHasPremptionRights;
+        public decimal? ParcelWidthInMeters;
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public SoilCertificateResultType? soilCertificateResultType;
+        public FloodProneType? ParcelFloodProneType;
 
-        public decimal? amountOfTotalPlotSquareMeters;
-
-        public decimal? amountOfBuiltSquareMeters;
-
-        public decimal? amountOfGardenSquareMeters;
-
-        public decimal? amountOfTerraceSquareMeters;
+        public bool? ParcelHasPremptionRights;
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public OrientationType? orientationFrontFacade;
+        public SoilCertificateResultType? SoilCertificateResultType;
+
+        public decimal? AmountOfTotalPlotSquareMeters;
+
+        public decimal? AmountOfBuiltSquareMeters;
+
+        public decimal? AmountOfGardenSquareMeters;
+
+        public decimal? AmountOfTerraceSquareMeters;
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public OrientationType? orientationGarden;
+        public OrientationType? OrientationFrontFacade;
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public OrientationType? orientationTerrace;
+        public OrientationType? OrientationGarden;
+
+        [JsonConverter(typeof(StringEnumConverter))]
+        public OrientationType? OrientationTerrace;
 
     }
 

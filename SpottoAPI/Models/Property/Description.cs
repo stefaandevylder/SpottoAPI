@@ -12,6 +12,12 @@ namespace SpottoAPI.Models.Property {
 
         public string? Value { get; set; }
 
+        public Description(DescriptionType type, string languageCode, string value) {
+            Type = type;
+            LanguageCode = languageCode;
+            Value = value;
+        }
+
     }
 
 }
