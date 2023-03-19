@@ -4,7 +4,7 @@ using SpottoAPI.Models.Transaction;
 
 namespace SpottoAPI.Models {
 
-    public class InputModel {
+    public class SpottoListing {
 
         public SpottoProperty PropertyInfo { get; set; }
 
@@ -12,7 +12,7 @@ namespace SpottoAPI.Models {
 
         public SpottoResource ResourcesInfo { get; set; }
 
-        public InputModel(SpottoProperty property, SpottoTransaction transaction, SpottoResource resource) {
+        public SpottoListing(SpottoProperty property, SpottoTransaction transaction, SpottoResource resource) {
             PropertyInfo = property;
             TransactionInfo = transaction;
             ResourcesInfo = resource;

@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using SpottoAPI.Models;
 
 namespace SpottoAPI {
 
@@ -13,8 +14,8 @@ namespace SpottoAPI {
         private string URL {
             get {
                 return Sandbox ?
-                    "https://api.spotto.be/uat/" :
-                    "https://api.spotto.be/prod/";
+                    "https://api.spotto.be/uat" :
+                    "https://api.spotto.be/prod";
             }
         }
 
@@ -28,7 +29,7 @@ namespace SpottoAPI {
         /// <param name="partnerId">The parner ID to authenticate</param>
         /// <param name="isSandbox">Wether to use UAT or not</param>
         /// <exception cref="ArgumentException"></exception>
-        public SpottoClient(string subscriptionKey, string partnerId, bool isSandbox) {
+        public SpottoClient(string subscriptionKey, string partnerId, bool isSandbox = false) {
             if (string.IsNullOrWhiteSpace(subscriptionKey) || string.IsNullOrWhiteSpace(partnerId)) {
                 throw new ArgumentException("The subscription key or partner id cannot be empty.");
             }
@@ -37,6 +38,31 @@ namespace SpottoAPI {
             Client = new RestClient(URL);
             SubscriptionKey = subscriptionKey;
             PartnerId = partnerId;
+        }
+
+        /// <summary>
+        /// Create a publication.
+        /// </summary>
+        /// <param name="publication">The publication object</param>
+        /// <returns>The RestResponse</returns>
+        public Task<RestResponse> CreatePublication(SpottoListing listing, string uniqueReference, bool toBeArchived = false) {
+            RestRequest req = new RestRequest("/partner/imports");
+            req.AddJsonBody(new Publication(uniqueReference, PartnerId, listing, toBeArchived));
+            return Client.PostAsync(CreateRequest(req));
+        }
+
+        /// <summary>
+        /// Adapt the request object with right subscription keys.
+        /// </summary>
+        /// <param name="requestMethod">Method to use</param>
+        /// <param name="request">The rest request object</param>
+        /// <returns>The adapted object to send</returns>
+        private RestRequest CreateRequest(RestRequest request) {
+            request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"subscription-key=\"{SubscriptionKey}\"");
+
+            return request;
         }
 
     }

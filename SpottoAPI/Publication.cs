@@ -8,11 +8,11 @@ namespace SpottoAPI {
 
         public string PartnerId { get; set; }
 
-        public InputModel InputModel { get; set; }
+        public SpottoListing InputModel { get; set; }
 
         public bool? IsToBeArchived { get; set; }
 
-        public Publication(string uniqueReference, string partnerId, InputModel model, bool isToBeArchived = false) {
+        public Publication(string uniqueReference, string partnerId, SpottoListing model, bool isToBeArchived = false) {
             UniqueReference = uniqueReference;
             PartnerId = partnerId;
             InputModel = model;
