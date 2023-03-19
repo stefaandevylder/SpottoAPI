@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Transaction {
 
@@ -7,12 +8,12 @@ namespace SpottoAPI.Models.Transaction {
 
         public double? RentalPrice { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public RentalPricePeriod? RentalPricePeriod { get; set; }
 
         public int? RentalPricePeriodDuration { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public RentalContractType? RentalContractType { get; set; }
 
         [JsonConverter(typeof(IsoDateTimeConverter))]

@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Property {
 
     public class ConstructionInfo {
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public ConditionStateType ConditionStateType { get; set; }
 
         public bool? IsProtectedProperty { get; set; }

@@ -1,14 +1,15 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Transaction {
 
     public class SpottoTransaction {
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public TransactionType? Type { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public AvailabilityStatusType? AvailabilityStatusType { get; set; }
 
         public bool? HidePriceDetails { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Property {
 
@@ -9,12 +10,12 @@ namespace SpottoAPI.Models.Property {
 
         public decimal? ParcelWidthInMeters;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public FloodProneType? ParcelFloodProneType;
 
         public bool? ParcelHasPremptionRights;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public SoilCertificateResultType? SoilCertificateResultType;
 
         public decimal? AmountOfTotalPlotSquareMeters;
@@ -25,13 +26,13 @@ namespace SpottoAPI.Models.Property {
 
         public decimal? AmountOfTerraceSquareMeters;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public OrientationType? OrientationFrontFacade;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public OrientationType? OrientationGarden;
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public OrientationType? OrientationTerrace;
 
     }

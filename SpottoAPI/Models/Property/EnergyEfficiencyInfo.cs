@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Property {
 
@@ -7,7 +8,7 @@ namespace SpottoAPI.Models.Property {
 
         public double? EpcScoreInKwhPerSquareMeterPerYear { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public EpcLabel? EpcLabel { get; set; }
 
         public string? EpcCertificateNumber { get; set; }

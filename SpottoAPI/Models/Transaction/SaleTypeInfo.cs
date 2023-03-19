@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Transaction {
 
@@ -9,21 +10,21 @@ namespace SpottoAPI.Models.Transaction {
 
         public double? PriceTo { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public PriceType? PriceType { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public TaxSystemType? TaxSystemType { get; set; }
 
         public double? TaxPercentageAmount { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public ProcedureType? ProcedureType { get; set; }
 
         [JsonConverter(typeof(IsoDateTimeConverter))]
         public DateTime? AvailableFromDate { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public AvailableFromEventType? AvailableFromEventType { get; set; }
 
     }

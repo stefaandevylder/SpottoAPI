@@ -1,20 +1,21 @@
-﻿using Newtonsoft.Json.Converters;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace SpottoAPI.Models.Property {
 
     public class SpottoProperty {
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public PropertyType? Type { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public PropertySubType? SubType { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public PropertyPorposeType? PurposeType { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public PropertyNewBuildType? NewBuildType { get; set; }
 
         public PropertyIdentifiers? PropertyIdentifiers { get; set; }
@@ -37,7 +38,7 @@ namespace SpottoAPI.Models.Property {
 
         public List<Description>? Descriptions { get; set; }
 
-        public LocationInfo? LocationInfo { get; set; }
+        public LocationInfo? Location { get; set; }
     }
 
 }
