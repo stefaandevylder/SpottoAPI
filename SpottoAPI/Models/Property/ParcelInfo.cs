@@ -6,9 +6,9 @@ namespace SpottoAPI.Models.Property {
 
     public class ParcelInfo {
 
-        public decimal? ParcelDepthInMeters;
+        public int? ParcelDepthInMeters;
 
-        public decimal? ParcelWidthInMeters;
+        public int? ParcelWidthInMeters;
 
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public FloodProneType? ParcelFloodProneType;
@@ -18,13 +18,13 @@ namespace SpottoAPI.Models.Property {
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public SoilCertificateResultType? SoilCertificateResultType;
 
-        public decimal? AmountOfTotalPlotSquareMeters;
+        public int? AmountOfTotalPlotSquareMeters;
 
-        public decimal? AmountOfBuiltSquareMeters;
+        public int? AmountOfBuiltSquareMeters;
 
-        public decimal? AmountOfGardenSquareMeters;
+        public int? AmountOfGardenSquareMeters;
 
-        public decimal? AmountOfTerraceSquareMeters;
+        public int? AmountOfTerraceSquareMeters;
 
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public OrientationType? OrientationFrontFacade;
