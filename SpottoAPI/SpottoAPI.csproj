@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/stefaandevylder/SpottoAPI</PackageProjectUrl>
     <PackageIcon>Icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/stefaandevylder/SpottoAPI</RepositoryUrl>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
