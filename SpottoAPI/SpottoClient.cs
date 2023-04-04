@@ -54,7 +54,7 @@ namespace SpottoAPI {
                     ContractResolver = new CamelCasePropertyNamesContractResolver(),
                     NullValueHandling = NullValueHandling.Ignore,
                 }));
-            return Client.PostAsync(CreateRequest(req));
+            return Client.ExecutePostAsync(CreateRequest(req));
         }
 
         /// <summary>
