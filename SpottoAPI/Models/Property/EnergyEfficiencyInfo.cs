@@ -6,7 +6,7 @@ namespace SpottoAPI.Models.Property {
 
     public class EnergyEfficiencyInfo {
 
-        public double? EpcScoreInKwhPerSquareMeterPerYear { get; set; }
+        public int? EpcScoreInKwhPerSquareMeterPerYear { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter), typeof(CamelCaseNamingStrategy))]
         public EpcLabel? EpcLabel { get; set; }
