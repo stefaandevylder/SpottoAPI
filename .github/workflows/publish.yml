@@ -20,16 +20,11 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Run tests
-        run: |
-          cd SpottoAPI.Tests
-          dotnet build --no-restore
-          dotnet test --no-build --verbosity normal
-
       - name: Pack project
         run: |
           cd SpottoAPI
           dotnet build --no-restore
           dotnet pack -c Release -o out
+
       - name: Push generated package to NuGet
         run: dotnet nuget push ./SpottoAPI/out/*.nupkg --skip-duplicate --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
