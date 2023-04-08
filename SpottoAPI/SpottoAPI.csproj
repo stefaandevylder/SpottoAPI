@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>stefaandevylder</Authors>
     <Description>An unofficial .NET wrapper for the Spotto.be API</Description>
     <Copyright>https://licenses.nuget.org/MIT</Copyright>
