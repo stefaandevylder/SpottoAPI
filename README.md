@@ -1,4 +1,4 @@
-![alt text](https://github.com/Viincenttt/MollieApi/workflows/Run%20automated%20tests/badge.svg "Automated Tests")
+[![Check if build is successful](https://github.com/stefaandevylder/SpottoAPI/actions/workflows/build.yml/badge.svg)](https://github.com/stefaandevylder/SpottoAPI/actions/workflows/build.yml)
 
 # SpottoAPI for Dotnet Core in C#
 
@@ -11,6 +11,7 @@ Have you spotted a bug or want to add a missing feature? All pull requests are w
 ## 1. Installation
 
 The easiest way to install is through the [NuGet](https://www.nuget.org/packages/SpottoAPI/) package.
+
 ```
 PM> Install-Package SpottoAPI
 ```
@@ -24,7 +25,9 @@ The library has currently some limitations, only creating listings is possible. 
 Official documentation can be found on the [Spotto](https://oris-prod-immox-apim.developer.azure-api.net/api-details#api=partner-uat&operation=CreatePublicationImport) API documentation.
 
 ## Examples
+
 ### Basic Example
+
 ```cs
 // Create the client
 SpottoClient client = new SpottoClient("SubscriptionKey", "PartnerId", isSandbox: true);
@@ -84,4 +87,5 @@ SpottoListing listing = new SpottoListing(
 //Post the listing
 await client.CreatePublication(listing, "ID123");
 ```
+
 This only contains the most basic options, there are a lot more, the documentation will get updated soon.
